@@ -21,6 +21,7 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
     <title>spotify</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+</head>
 
 <body>
     <div id='app'>
@@ -35,7 +36,23 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
             <div class="row">
                 <div class="col-4 mt-5" v-for='todo in todos'>
                     <div class="card bg-black text-white d-flex flex-column align-items-center">
-                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="">
+                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                        <!-- Modale -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <div class="modal-body text-black">
+                                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{todo.title}}</h1>
+                                        <div class="card-text py-3">{{todo.author}}</div>
+                                        <h5 class="card-text">{{todo.genre}}</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fine modale -->
                         <div class="card-body text-center">
                             <h5 class="card-title">{{todo.title}}</h5>
                             <div class="card-text py-3">{{todo.author}}</div>
@@ -48,9 +65,16 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
 
     </div>
 
+
+
+
+
+
     <!-- creo il collegamento con la cdn di vue -->
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
     <!-- creo il collegamento con la cdn di axios -->
 
