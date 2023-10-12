@@ -24,18 +24,22 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
 
 <body>
     <div id='app'>
-        <header class="container-fluid bg-secondary">
+        <header class="container-fluid bg-black">
+            <div class="p-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png" alt="">
+            </div>
 
         </header>
 
         <div class="container">
             <div class="row">
-                <div class="col-4 mt-5">
-                    <div class="card">
-                        <img src="https://picsum.photos/20/20" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">{{todos}}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-4 mt-5" v-for='todo in todos'>
+                    <div class="card bg-black text-white d-flex flex-column align-items-center">
+                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{todo.title}}</h5>
+                            <div class="card-text py-3">{{todo.author}}</div>
+                            <h5 class="card-text">{{todo.genre}}</h5>
                         </div>
                     </div>
                 </div>
