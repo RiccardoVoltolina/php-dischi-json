@@ -35,9 +35,8 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
         <div class="container">
             <div class="row">
                 <div class="col-4 mt-5" v-for='(todo, index) in todos'>
-                    <div class="card bg-black text-white d-flex flex-column align-items-center">
-                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-
+                    <div class="card bg-black text-white d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="selectedCard(todo)">
+                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{todo.title}}</h5>
                             <div class="card-text py-3">{{todo.author}}</div>
@@ -47,17 +46,16 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
                 </div>
             </div>
             <!-- Modale -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-for='(todo, index) in todos'>
+            <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="exampleModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
                         <div class="modal-body text-black">
-                            <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{todo.title}}</h1>
-                            <div class="card-text py-3">{{todo.author}}</div>
-                            <h5 class="card-text">{{todo.genre}}</h5>
+                            <img :src="modalAlbum.poster" class="card-img-top w-50 p-3" alt="" type="button">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{modalAlbum.title}}</h1>
+                            <div class="card-text py-3">{{modalAlbum.author}}</div>
+                            <h5 class="card-text">{{modalAlbum.genre}}</h5>
                         </div>
-
                     </div>
                 </div>
             </div>
