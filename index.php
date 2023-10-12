@@ -34,25 +34,10 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
 
         <div class="container">
             <div class="row">
-                <div class="col-4 mt-5" v-for='todo in todos'>
+                <div class="col-4 mt-5" v-for='(todo, index) in todos'>
                     <div class="card bg-black text-white d-flex flex-column align-items-center">
                         <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-                        <!-- Modale -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
 
-                                    <div class="modal-body text-black">
-                                        <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{todo.title}}</h1>
-                                        <div class="card-text py-3">{{todo.author}}</div>
-                                        <h5 class="card-text">{{todo.genre}}</h5>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- fine modale -->
                         <div class="card-body text-center">
                             <h5 class="card-title">{{todo.title}}</h5>
                             <div class="card-text py-3">{{todo.author}}</div>
@@ -61,6 +46,22 @@ Al click su un disco, recuperare e mostrare i dati del disco selezionato. */
                     </div>
                 </div>
             </div>
+            <!-- Modale -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-for='(todo, index) in todos'>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-body text-black">
+                            <img :src="todo.poster" class="card-img-top w-50 p-3" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{todo.title}}</h1>
+                            <div class="card-text py-3">{{todo.author}}</div>
+                            <h5 class="card-text">{{todo.genre}}</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- fine modale -->
         </div>
 
     </div>
