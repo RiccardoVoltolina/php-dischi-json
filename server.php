@@ -1,12 +1,13 @@
 <?php
 
+/* trasformo il mio array nel json in una stringa */ 
 
-// trasforma l' array di oggetti di json in un array associativo (quello con => di php), in modo che si possono fare le chiamate get in index
+$todos = file_get_contents('songs.json');
 
-$todos = json_decode(file_get_contents('songs.json'), true);
-
-# creo il collegamento tra il file json e index
+//da delle impostazioni alla chiamata
 
 header('Content-Type: application/json');
 
-echo json_encode($todos);
+/* stampo todos in una nuova pagina */
+
+echo $todos;
